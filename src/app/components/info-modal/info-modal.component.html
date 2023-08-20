@@ -1,0 +1,74 @@
+<div class="bg-wrapper" (dblclick)="closeMoreinfoModal()"></div>
+<div class="modal-container" *ngIf="movieDetailsData">
+
+    <div class="close-btn-container" (click)="closeMoreinfoModal()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="Hawkins-Icon Hawkins-Icon-Standard" data-name="Close" data-uia="previewModal-closebtn" role="button"
+            aria-label="close" tabindex="0">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M2.29297 3.70706L10.5859 12L2.29297 20.2928L3.70718 21.7071L12.0001 13.4142L20.293 21.7071L21.7072 20.2928L13.4143 12L21.7072 3.70706L20.293 2.29285L12.0001 10.5857L3.70718 2.29285L2.29297 3.70706Z"
+                fill="currentColor"></path>
+        </svg>
+    </div>
+    <!-- https://www.youtube.com/embed/scNmYjoR-qM?controls=0 -->
+    <!-- https://www.youtube.com/embed/Hr39beLiyCw?controls=0 -->
+    <div class="top-section-container"> 
+        <div *ngIf="(videoUrl != 'NA'); else noVideoFound">
+            <iframe width="560" height="315" [src]="videoUrl | safeUrl" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+        <ng-template #noVideoFound>
+            <h4 style="color: white; text-align: center; padding: 25%;">No Videos Found</h4>
+        </ng-template>
+
+
+    </div>
+    <div class="info-section-container">
+
+        <div class="info-grid-container ">
+            <div class="left-section">
+
+
+                <div class="dates-info">
+                    <span>{{ movieDetailsData.release_date | date: "yyyy" }}</span>
+                    <span>{{ movieDetailsData.runtime | duration }}</span>
+                    <span>HD</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="ltr-18tpq4v" data-name="AudioDescription">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.9781 7.51999H22.262C23.3699 8.81828 24 10.4801 24 12.2077C24 13.7414 23.5049 15.2301 22.6221 16.4453H22.3347H21.85H21.5661C22.5598 15.2613 23.1206 13.7691 23.1206 12.2077C23.1206 10.4489 22.404 8.75596 21.1611 7.51999H21.445H21.9781ZM6.91381 16.4795H8.87336V7.52653H6.42566L0 16.4795H2.87701L3.63174 15.2955H6.91381V16.4795ZM4.8625 13.4298H6.92592V10.2239L4.8625 13.4298ZM12.3019 9.62285C13.6209 9.62285 14.6838 10.6926 14.6838 12.0048C14.6838 13.3204 13.6209 14.3902 12.3019 14.3902H11.6787V9.62285H12.3019ZM12.5442 16.4744C15.0127 16.4744 17.0207 14.4698 17.0207 12.0048C17.0207 9.52937 15.0335 7.52828 12.565 7.52828H12.5373H9.79877V16.4778H12.5442V16.4744ZM20.0102 7.51999H19.7263H19.1932H18.9093C20.1522 8.75596 20.8688 10.4489 20.8688 12.2077C20.8688 13.7691 20.308 15.2613 19.3143 16.4453H19.5982H20.0829H20.3634C21.2531 15.2301 21.7482 13.7414 21.7482 12.2077C21.7482 10.4801 21.1181 8.81828 20.0102 7.51999ZM17.4745 7.51999H17.7584C18.8663 8.81828 19.4895 10.4801 19.4895 12.2077C19.4895 13.7414 19.0013 15.2301 18.1116 16.4453H17.8277H17.3465H17.0626C18.0493 15.2613 18.6101 13.7691 18.6101 12.2077C18.6101 10.4489 17.9004 8.75596 16.6575 7.51999H16.9345H17.4745Z"
+                            fill="currentColor"></path>
+                    </svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="Hawkins-Icon Hawkins-Icon-Small" data-name="Subtitles">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0 1.75C0 1.33579 0.335786 1 0.75 1H15.25C15.6642 1 16 1.33579 16 1.75V11.25C16 11.6642 15.6642 12 15.25 12H12.75V14C12.75 14.2652 12.61 14.5106 12.3817 14.6456C12.1535 14.7806 11.8709 14.785 11.6386 14.6572L6.80736 12H0.75C0.335786 12 0 11.6642 0 11.25V1.75ZM1.5 2.5V10.5H7H7.19264L7.36144 10.5928L11.25 12.7315V11.25V10.5H12H14.5V2.5H1.5ZM6 5.75L3 5.75V4.25L6 4.25V5.75ZM13 7.25H10V8.75H13V7.25ZM8 8.75L3 8.75V7.25L8 7.25V8.75ZM13 4.25H8V5.75H13V4.25Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <div class="ratings-info">
+                    <span>{{ movieDetailsData.adult ? "A" : "U/A" }}</span>
+                </div>
+                <div class="desc-info">
+                    {{ movieDetailsData.overview }} </div>
+            </div>
+
+            <div class="right-section">
+                <div class="cast-info">
+                    <span>Cast:</span> {{ getCast() }}
+                </div>
+                <div class="genre-info">
+                    <span>Genres:</span> {{ getGenres() }}
+                </div>
+                <div class="other-info">
+                    <span>Revenue:</span> {{ movieDetailsData.revenue }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="more-like-this-section-container">
+        Skipping "More Like this" section for now
+    </div>
+</div>

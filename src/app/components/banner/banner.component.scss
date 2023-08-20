@@ -1,0 +1,162 @@
+.banner-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // height: auto;
+  // height: 99%;    /* height applied to app-banner is slightly higher, hence to adjust for that given 99% & not 100 */
+  height: 100%;
+  z-index: 0;
+
+  img {
+    position: relative;
+    width: 100%;
+  }
+
+  .left-vignette {
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    right: 26.09%;
+    top: 0;
+    transition: opacity 0.5s;
+    background: linear-gradient(77deg, rgba(0, 0, 0, 0.6), transparent 85%);
+  }
+
+  .bottom-vignette {
+    background-color: transparent;
+    background-image: linear-gradient(
+      180deg,
+      hsla(0, 0%, 8%, 0) 0,
+      hsla(0, 0%, 8%, 0.15) 15%,
+      hsla(0, 0%, 8%, 0.35) 29%,
+      hsla(0, 0%, 8%, 0.58) 44%,
+      #141414 68%,
+      #141414
+    );
+    background-position: 0 top;
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+    bottom: -1px;
+    height: 14.7vw;
+    opacity: 1;
+    top: auto;
+    width: 100%;
+    position: absolute;
+  }
+
+  .label-container {
+    position: absolute;
+    top: 35%;
+    left: 4%;
+    color: white;
+    width: 50%;
+
+    .no1-movie-txt {
+      // font-size: 2em;
+      font-size: 5vmin;
+      font-weight: 600;
+
+      span {
+        background-color: #ff1c0b;
+        padding: 0 1%;
+      }
+    }
+    .desc-container {
+      margin-top: 4%;
+      // font-size: 0.9em;
+      font-size: 2.2vmin;
+      font-weight: 600;
+
+      span {
+        // text-decoration: underline;
+        font-size: 2.4em;
+      }
+    }
+    .ops-container {
+      position: relative;
+      margin-top: 4vmin;
+      button {
+        margin-right: 1.5vmin;
+        font-weight: 600;
+        border: 0;
+      }
+      .play-btn {
+        padding: var(--bs-btn-padding-y) 4vmin;
+        font-size: 2.4vmin;
+        svg {
+          width: 1.3rem;
+          // width: 30%;
+        }
+      }
+      .more-info-btn {
+        font-size: 2.4vmin;
+        padding: var(--bs-btn-padding-y) 4vmin;
+        background-color: rgba($color: #6c757d, $alpha: 0.65);
+        svg {
+          // width: 22%;
+          width: 1.3rem;
+        }
+      }
+      .more-info-btn:hover {
+        background-color: rgba($color: #3b3b3b, $alpha: 0.65);
+      }
+    }
+  }
+
+  .pg-rating-container {
+    position: absolute;
+    right: 0;
+    background-color: rgba(51, 51, 51, 0.6);
+    border-left: solid 3px #dcdcdc;
+    padding: 0.5vw 2vw;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 600;
+    top: 58%;
+  }
+}
+
+// Resonsive
+// @media (max-width: 1024px), screen and (orientation: portrait) {
+// @media (800px <= width <= 1200px) and (orientation: landscape) {
+@media (max-device-width: 1200px) and (orientation: landscape) {
+  .banner-container .label-container {
+    top: 25%;
+  }
+  .banner-container .label-container .no1-movie-txt {
+    font-size: 4vmin;
+  }
+  .banner-container .label-container .desc-container {
+    font-size: 1.8vmin;
+  }
+}
+// @media (width <= 1024px), screen and (orientation: portrait) {
+@media (max-width: 1024px) and (orientation: portrait) {
+  .banner-container .label-container {
+    .desc-container {
+      display: none;
+    }
+  }
+  .banner-container {
+    height: 100%;
+  }
+}
+@media (max-device-width: 1024px) and (orientation: portrait) {
+  .banner-container .label-container {
+    .desc-container {
+      display: none;
+    }
+  }
+  .banner-container {
+    height: 100%;
+  }
+}
+// @media (width <= 900px) {
+//   .banner-container .label-container {
+//     .desc-container {
+//       display: none;
+//     }
+//   }
+// }

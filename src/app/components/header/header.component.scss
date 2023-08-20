@@ -1,0 +1,251 @@
+.header-container {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  // height: 10vmin;
+  height: 8vmin;
+  padding: 0 4%;
+  // border: solid 1px white;
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 10%,
+    transparent
+  );
+  z-index: 10;
+
+  .menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    // border: solid 1px red;
+
+    .logo-container {
+      position: relative;
+      height: 100%;
+      width: 15vmin;
+      // border: solid 1px red;
+      img {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        // border: solid 1px chartreuse;
+      }
+    }
+
+    .menu-item-container:nth-child(1) {
+      // margin-left: 6.5vmin;
+      margin-left: 0;
+    }
+    .menu-item-container:nth-child(2) {
+      margin-left: 4.5vmin;
+    }
+    .menu-item-container {
+      position: relative;
+      margin-left: 2.5vmin;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+  }
+
+  .menu-port-container {
+    display: none;
+    // display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    width: 30%;
+
+    .logo-container {
+      position: relative;
+      height: 100%;
+      margin-left: 0;
+      display: flex;
+      align-items: center;
+      img {
+        position: relative;
+        width: auto;
+        height: 90%;
+      }
+    }
+    .menu-item-container:nth-child(1) {
+      margin-left: 0;
+    }
+    .menu-item-container {
+      position: relative;
+      margin-left: 2.5vmin;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 10;
+    }
+
+    .bg-bkg-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 0;
+    }
+
+    .bg-menu-icon-container {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      width: 15%;
+      img {
+        position: relative;
+        width: 100%;
+        margin: 0 10%;
+        object-fit: contain;
+      }
+    }
+    .bg-menu-container {
+      position: fixed;
+      height: 100%;
+      width: 65%;
+      top: 0vmin;
+      left: 0%;
+      background-color: black;
+      transform: translateX(-100%);
+      animation: revealBgMenu 0.25s ease-in forwards;
+      .bg-menu-inner-container {
+        position: relative;
+        top: 16vmin;
+        z-index: 10;
+      }
+
+      .menu-item-container {
+        position: relative;
+        margin-left: 4vmin;
+        z-index: 10;
+      }
+    }
+
+    @keyframes revealBgMenu {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0%);
+      }
+    }
+  }
+
+  .ops-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    .ops-item-container {
+      position: relative;
+      margin-right: 2.5vmin;
+      color: white;
+      cursor: pointer;
+      text-align: center;
+      // width: 18%;
+      svg,
+      img {
+        text-align: center;
+      }
+    }
+    .ops-item-container:nth-child(4) {
+      margin-right: 0;
+    }
+    .search-btn-container {
+      position: relative;
+      width: 100%;
+
+      input {
+        border: white solid 1px;
+        background-color: var(--dark-theme-color);
+        height: 100%;
+        padding: 4% 0 4% 4%;
+        color: white;
+        float: right;
+        animation: revealSearchBar 0.25s ease-in forwards;
+      }
+    }
+
+    .mic-btn-container {
+      #mic-img {
+        position: relative;
+        // width: 58%;
+        width: 1.25rem;
+        margin: 0;
+      }
+
+      .mic-listening-anim {
+        animation: micListening 0.5s 0.5s ease-in-out infinite;
+      }
+      #mic-img:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      #mic-img:active {
+        opacity: 1;
+        transform: scale(0.98);
+      }
+      @keyframes revealMicBtn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes micListening {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.25);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+@keyframes revealSearchBar {
+  from {
+    opacity: 0;
+    width: 0%;
+  }
+  to {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+// Resonsive
+@media (max-device-width: 1024px) and (orientation: portrait) {
+  .header-container {
+    .menu-port-container {
+      display: flex;
+    }
+    .menu-container {
+      display: none;
+    }
+  }
+  .header-container {
+    padding: 0 3.5%;
+  }
+}
+@media (max-width: 900px) and (orientation: landscape) {
+  .header-container .menu-container .menu-item-container {
+    font-size: 0.6em;
+  }
+}

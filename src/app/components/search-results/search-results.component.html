@@ -1,0 +1,11 @@
+<div class="movie-items-container">
+
+    <ng-container *ngFor="let movie of moviesListBySearchData; index as i">
+
+        <div class="movie-item-container" (click)="openMoreInfoSlider(movie)">
+
+            <img [src]="global.posterImgUrl + movie.poster_path" #test (error)="onImgError(test)" [alt]="movie.title">
+        </div>
+    </ng-container>
+
+</div>

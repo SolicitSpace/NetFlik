@@ -1,0 +1,74 @@
+.top10-movies-container {
+  position: relative;
+  width: 100%;
+  // height: $container-height;
+  overflow-x: auto;
+
+
+ 
+
+  .scroll-panel-title {
+    position: relative;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0 0 1vmin 5vmin;
+    color: white;
+  }
+
+ 
+  owl-carousel-o {
+    position: relative;
+
+    .movie-item-container {
+      display: inline-flex;
+      align-items: baseline;
+      height: var(--scroll-item-height-1);
+      width: calc(
+        var(--scroll-item-height-1) + (var(--scroll-item-height-1) * 0.4)
+      );
+
+      svg {
+        max-height: 100%;
+        height: var(--scroll-item-height-1);
+      }
+      img {
+        max-height: 99%;
+        // border-radius: 4px;
+        cursor: pointer;
+        transition: .1s ease-in; 
+      }
+      img:hover {
+        // transform: scale(1.1);
+      }
+    }
+  }
+  // .scroll-panel {
+  //   position: relative;
+  //   display: flex;
+  //   width: max-content;
+  //   height: 100%;
+  //   height: var(--scroll-item-height-1);
+
+  //   .movie-item-container {
+  //     display: inline-flex;
+  //     align-items: baseline;
+  //     height: 100%;
+  //     width: calc(var(--scroll-item-height-1) + (var(--scroll-item-height-1) * 0.4));
+
+  //     svg {
+  //       max-height: 100%;
+  //     }
+  //     img {
+  //       max-height: 99%;
+  //     }
+  //   }
+  // }
+
+
+
+  
+}
+
+
+
+ 

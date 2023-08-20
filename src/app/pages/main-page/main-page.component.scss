@@ -1,0 +1,34 @@
+.main-container {
+  // position: relative;
+  position: absolute;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.freeze-scroll {
+  position: fixed;
+  overflow: visible;
+}
+
+.movie-sliders-container {
+  position: relative;
+  display: block;
+  // margin-top: -26vmin;
+
+  app-top10-movies,
+  app-movies-slider-block {
+    display: block;
+    margin-top: 3.5vmin;
+  }
+}
+
+
+
+app-banner {
+  display: block;
+  position: relative;
+  width: 100%;
+  // height: 100%;
+  height: calc(100vw / 1.777777777777778);      /* need to set the height apprx to banner img height. With this we'll prevent the structure collapse until it's load completely */
+}

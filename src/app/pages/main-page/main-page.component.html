@@ -1,0 +1,39 @@
+<!-- <div class="main-container"> -->
+<div class="main-container" [ngClass]="mainPageFreezeScroll ? 'freeze-scroll' : ''" #mainContainer>
+    <div class="main-inner-container">
+        <app-header (searchInput)="handleSearchInput($event)" (refreshResultsEvt)="refreshResults()"></app-header>
+
+
+        <ng-container *ngIf="!isSearching; else searchResultsContainer">
+            <app-banner [bannerMovie]="bannerMovieData" (bannerActions)="handleBannerActions($event)"
+                (movieSel)="showMoreInfoModal($event)"></app-banner>
+
+
+            <div class="movie-sliders-container">
+                <app-top10-movies [trendingMoviesData]="trendingMoviesData"
+                    (movieSel)="showMoreInfoModal($event)"></app-top10-movies>
+
+
+
+                <app-movies-slider-block *ngFor="let genre of genreListData?.genres; index as i"
+                    (movieSliderActions)="handleMovieSliderActions($event)" (movieSel)="showMoreInfoModal($event)"
+                    [genre-data]="genre"></app-movies-slider-block>
+
+            </div>
+        </ng-container>
+
+        <ng-template #searchResultsContainer>
+            <app-search-results [searchInputVal]="searchInputVal" (movieSel)="showMoreInfoModal($event)"
+                (notifyIfFooterAttachBottom)="setIsFooterAttachBottom($event)"></app-search-results>
+        </ng-template>
+
+
+
+        <app-footer [isFooterAttachBottom]="isFooterAttachBottom"></app-footer>
+
+    </div>
+</div>
+
+
+<app-info-modal *ngIf="showMoreInfoModel" [movieId]="selMovieId"
+    (infoModalActions)="handleInfoModalActions($event)"></app-info-modal>

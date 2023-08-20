@@ -1,0 +1,22 @@
+<div class="movies-slider-container">
+    <p class="scroll-panel-title">{{ genreData.name }}</p>
+
+
+
+
+
+    <div *ngIf="!isShowCarousel" class="skeleton-loader-container">
+        <ngx-skeleton-loader count="20" appearance="circle"></ngx-skeleton-loader>
+    </div>
+
+    <owl-carousel-o *ngIf="isShowCarousel" [options]="customOptions" (dragging)="manageDragstatus($event)">
+        <ng-template carouselSlide *ngFor="let movie of moviesListData?.results; index as i">
+            <div class="movie-item-container" (click)="openMoreInfoSlider(movie)">
+
+
+                <img [src]="global.posterImgUrl + movie.poster_path" [alt]="movie.title">
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+
+</div>
