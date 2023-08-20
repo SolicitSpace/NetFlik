@@ -1,5 +1,5 @@
 export const environment = {
-    movieDB_token: `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMzE1NTFjNDU3MjdhYmIwNTM0MDA3N2ZkZTQxNGFlMCIsInN1YiI6IjY0NTY3OTE4NzdkMjNiMDExOWRmNTRmMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.x0EHvxh62x3fQcst3nLbTOe3X1NbZ9sdz1GPxEgtGL8`,
+    movieDB_token: ``,      // set the movie db api key here
     movieDB_baseUrl: `https://api.themoviedb.org`,
     movieImgUrls: [
         `https://image.tmdb.org/t/p/w92`,
